@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421210445) do
+ActiveRecord::Schema.define(version: 20170425120118) do
 
-  create_table "posts", force: :cascade do |t|
+  create_table "employee_postes", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "poste_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employee_postes_on_employee_id"
+    t.index ["poste_id"], name: "index_employee_postes_on_poste_id"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

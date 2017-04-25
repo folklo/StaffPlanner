@@ -1,0 +1,18 @@
+<%= simple_form_for(@employee) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :poste_ids, "Postes" %>
+    <%= f.select :poste_ids, Poste.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
+  </div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
